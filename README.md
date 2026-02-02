@@ -15,3 +15,4 @@ Customize:
 - Add images to an `assets/` folder if needed.
 
 Design notes: clean, modern, professional colors (white, dark blue, light grey), rounded cards, subtle shadows, smooth scroll.
+
