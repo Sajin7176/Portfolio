@@ -1,0 +1,247 @@
+:root {
+    --bg: #ffffff;
+    --dark-blue: #0b3d91;
+    --light-grey: #f3f4f6;
+    --muted: #6b7280;
+    --card-shadow: 0 6px 18px rgba(11, 61, 145, 0.08);
+    --radius: 12px;
+    --max-width: 1100px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    margin: 0;
+    background: var(--light-grey);
+    color: #0f1724;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.site-header {
+    background: var(--bg);
+    box-shadow: 0 1px 0 rgba(15, 23, 36, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 40
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.logo {
+    font-weight: 800;
+    color: var(--dark-blue);
+    text-decoration: none;
+    font-size: 1rem
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    font-size: 1.25rem
+}
+
+.hero {
+    background: linear-gradient(180deg, rgba(11, 61, 145, 0.06), transparent 60%);
+    padding: 6rem 0;
+    border-bottom: 1px solid rgba(11, 61, 145, 0.04)
+}
+
+.hero-inner {
+    text-align: center
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin: 0;
+    color: var(--dark-blue);
+    letter-spacing: -0.5px
+}
+
+.hero-sub {
+    margin: 0.5rem 0;
+    color: var(--muted);
+    font-weight: 600
+}
+
+.hero-tag {
+    color: var(--muted);
+    margin-top: 0.75rem
+}
+
+.hero-actions {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700
+}
+
+.btn.primary {
+    background: var(--dark-blue);
+    color: white;
+    box-shadow: var(--card-shadow)
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid rgba(11, 61, 145, 0.12);
+    color: var(--dark-blue)
+}
+
+.btn.small {
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px
+}
+
+.about {
+    padding: 3rem 0
+}
+
+.lead {
+    color: var(--muted);
+    max-width: 70ch
+}
+
+.skills {
+    padding: 2.5rem 0
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem
+}
+
+.skills-column h3 {
+    margin-top: 0
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.9rem;
+    margin-top: 0.75rem
+}
+
+.skill-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: var(--card-shadow)
+}
+
+.skill-icon {
+    font-size: 1.2rem
+}
+
+.skill-name {
+    font-weight: 700
+}
+
+.muted {
+    color: var(--muted);
+    font-weight: 600;
+    margin-left: 0.4rem
+}
+
+.projects {
+    padding: 2.5rem 0
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem
+}
+
+.project-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    box-shadow: var(--card-shadow)
+}
+
+.contact {
+    padding: 2.5rem 0
+}
+
+.site-footer {
+    padding: 1.5rem 0;
+    background: transparent;
+    color: var(--muted);
+    text-align: center;
+    border-top: 1px solid rgba(15, 23, 36, 0.04)
+}
+
+@media (max-width:800px) {
+    .skills-grid {
+        grid-template-columns: 1fr
+    }
+    .nav-links {
+        display: none
+    }
+    .nav-toggle {
+        display: block
+    }
+}
+
+
+/* small niceties */
+
+h2 {
+    color: var(--dark-blue);
+    margin-bottom: 0.75rem
+}
+
+small {
+    font-size: 0.75rem
+}
+
+a:focus {
+    outline: 2px solid rgba(11, 61, 145, 0.18);
+    outline-offset: 2px;
+    border-radius: 8px
+}
