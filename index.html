@@ -10,9 +10,10 @@
 </head>
 
 <body>
-    <header class="site-header">
+    <header class="site-header" id="siteHeader">
         <div class="container header-inner">
             <a class="logo" href="#hero"></a>
+
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
@@ -23,7 +24,11 @@
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
             </nav>
         </div>
+
+        <!-- glowing divider line -->
+        <div class="nav-divider"></div>
     </header>
+
 
     <main>
         <section id="hero" class="hero">
@@ -34,30 +39,52 @@
                 </div>
 
                 <div class="hero-text">
-                    <h1 class="hero-title">Sajin S</h1>
-                    <p class="hero-sub">Software Engineer</p>
-                    <p class="hero-tag">Where Imagination Meets Functionality.</p>
+                    <h1 class="hero-title reveal">Sajin S</h1>
+                    <p class="hero-sub reveal delay-1">Software Engineer</p>
+                    <p class="hero-tag reveal delay-2">Where Imagination Meets Functionality.</p>
 
-                    <div class="hero-actions">
+                    <div class="hero-actions reveal delay-3">
                         <a class="btn primary" href="#contact" id="contactBtn">Contact Me</a>
                         <a class="btn primary" href="#projects">View Projects</a>
                     </div>
                 </div>
 
+
             </div>
         </section>
+
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,53.3C1120,53,1280,75,1360,85.3L1440,96V120H0Z"></path>
+    </svg>
+        </div>
 
 
         <section id="about" class="about">
             <div class="container">
-                <h2>About Me</h2>
-                <p class="lead">Software Engineer working on full stack technologies. Comfortable with frontend + backend. Interested in analytics, reporting, and dashboards. Goal: Work in roles combining development + data analysis.</p>
+                <h2 class="about-title reveal">About Me</h2>
+
+                <p class="lead about-lead reveal delay-1">
+                    Software Engineer with professional experience developing and maintaining healthcare enterprise applications, including ERP and EHR systems. Skilled in full-stack development using modern front-end technologies, backend services, and relational databases,
+                    with a strong focus on building responsive user interfaces and data-driven features. Experienced in reporting modules, dashboards, and data analysis to support clinical and operational workflows. Primary interests include UI/UX-focused
+                    application development and data analytics, with working knowledge of DevOps practices such as Git-based version control, CI/CD pipelines, and deployment automation. Adept at collaborating with cross-functional teams to enhance system
+                    usability, performance, and reliability in healthcare environments.
+                </p>
+
             </div>
         </section>
 
+        <div class="section-divider flip">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,53.3C1120,53,1280,75,1360,85.3L1440,96V120H0Z"></path>
+    </svg>
+        </div>
+
+
+
         <section id="skills" class="skills">
             <div class="container">
-                <h2>Skills</h2>
+                <h2 class="about-title reveal">Skills</h2>
                 <div class="skills-grid">
                     <div class="skills-column">
                         <h3>Development Skills</h3>

@@ -1,7 +1,11 @@
-// Simple interactivity: mobile nav toggle and contact button smooth scroll
+/* ================= PAGE LOADED ================= */
+
 document.addEventListener('DOMContentLoaded', function() {
+
+    /* -------- MOBILE NAV -------- */
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.querySelector('.nav-links');
+
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
@@ -15,18 +19,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const contactBtn = document.getElementById('contactBtn');
-    if (contactBtn) {
-        contactBtn.addEventListener('click', function(e) {
-            // default anchor behavior will scroll; close mobile menu if open
-            if (window.innerWidth < 800 && navLinks) { navLinks.style.display = 'none'; }
-        });
-    }
-
-    // Close nav when clicking a link
+    /* -------- CLOSE MOBILE NAV WHEN CLICK -------- */
     document.querySelectorAll('.nav-links a').forEach(a => {
         a.addEventListener('click', () => {
-            if (window.innerWidth < 800 && navLinks) { navLinks.style.display = 'none'; }
+            if (window.innerWidth < 800 && navLinks) {
+                navLinks.style.display = 'none';
+            }
         });
     });
+
+    /* -------- SCROLL REVEAL ANIMATION -------- */
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.25
+    });
+
+    /* About Section */
+    document.querySelectorAll('.section-title, .about .lead').forEach(el => {
+        observer.observe(el);
+    });
+
+    /* Hero Section */
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+
+});
+/* -------- NAVBAR SCROLL EFFECT -------- */
+
+const header = document.getElementById("siteHeader");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 60) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
 });
