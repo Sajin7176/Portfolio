@@ -840,4 +840,125 @@ a:focus {
 }
 
 
-/* disperse skill cards with glass effect */
+/* EXPERIENCE SECTION */
+
+.experience {
+    padding: 90px 0;
+    color: #e6edf3;
+}
+
+.timeline {
+    position: relative;
+    margin-top: 50px;
+    padding-left: 45px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 55px;
+}
+
+.timeline-content p {
+    line-height: 1.7;
+    color: #c9d1d9;
+    margin-top: 10px;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px 22px;
+    border-radius: 12px;
+    transition: 0.3s;
+    margin-top: 3rem;
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid #00e0ff;
+    color: #00e0ff;
+}
+
+.btn.outline:hover {
+    background: #00e0ff;
+    color: #000;
+}
+
+.timeline-content:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 224, 255, 0.5);
+    box-shadow: 0 10px 35px rgba(0, 224, 255, 0.15);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: #00e0ff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00e0ff;
+}
+
+* headings */ .timeline-content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.timeline-content h4 {
+    font-size: 17px;
+    color: #00e0ff;
+    margin-bottom: 6px;
+}
+
+.timeline-date {
+    font-size: 13px;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.exp-points {
+    margin-top: 15px;
+    padding-left: 22px;
+}
+
+.exp-points li {
+    margin-bottom: 8px;
+    color: #c9d1d9;
+}
+
+
+/* THIS fixes invisible bullets */
+
+.exp-points li::marker {
+    color: #00e0ff;
+}
+
+.tech-stack {
+    margin-top: 15px;
+}
+
+.tech-stack span {
+    display: inline-block;
+    background: rgba(0, 224, 255, 0.12);
+    border: 1px solid rgba(0, 224, 255, 0.4);
+    padding: 6px 12px;
+    margin: 5px 5px 0 0;
+    border-radius: 20px;
+    font-size: 13px;
+}
