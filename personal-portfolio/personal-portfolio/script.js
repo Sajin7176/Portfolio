@@ -1,6 +1,6 @@
 /* ================= PAGE LOADED ================= */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
     /* -------- MOBILE NAV -------- */
     const navToggle = document.getElementById('navToggle');
@@ -48,18 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Hero Section */
     document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
-    });
-
-    /* Add simple tilt effect to skill cards */
-    const cards = document.querySelectorAll('.skill-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
     });
 
 });
@@ -150,7 +138,7 @@ moveGlow(slides[0]);
 const form = document.querySelector(".contact-form");
 const popup = document.getElementById("contactPopup");
 
-form.addEventListener("submit", async function (e) {
+form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const data = new FormData(form);
