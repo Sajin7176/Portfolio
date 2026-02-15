@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sajin S — Software Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -18,7 +19,6 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
@@ -262,14 +262,196 @@
         </svg>
         </div>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-                <p>LinkedIn: <a href="#">(placeholder)</a></p>
-                <p>GitHub: <a href="#">(placeholder)</a></p>
+        <section id="experience" class="experience">
+            <div class="container cert-container">
+
+                <h2 class="about-title">Certifications</h2>
+
+                <!-- glow background -->
+                <div class="bg-circle"></div>
+
+                <div class="carousel-container">
+
+                    <button class="slider-nav prev" id="prev">&#10094;</button>
+                    <button class="slider-nav next" id="next">&#10095;</button>
+
+                    <div class="carousel-wrapper">
+
+                        <div class="carousel">
+
+                            <!-- 1 -->
+                            <div class="carousel-slide" data-index="0">
+
+                                <!-- ICON -->
+                                <div class="cert-icon">
+                                    <img src="assets/icons/data-science.png" alt="IBM Certification">
+                                </div>
+
+                                <div class="carousel-content">
+                                    <h2>IBM</h2>
+                                    <p>
+                                        Data Science 101 <br>
+                                        <a target="_blank" href="https://courses.skillsbuild.skillsnetwork.site/certificates/e37f21b06b6d4f21af33d0d0b4d32cf0">
+                View Certificate
+            </a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- 2 -->
+                            <div class="carousel-slide" data-index="1">
+
+                                <div class="cert-icon">
+                                    <img src="assets/icons/database.png" alt="SoloLearn">
+                                </div>
+
+                                <div class="carousel-content">
+                                    <h2>SoloLearn</h2>
+                                    <p>
+                                        SQL Course <br>
+                                        <a target="_blank" href="https://www.sololearn.com/Certificate/CT-TIIQON08/jpg">
+                View Certificate
+            </a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- 3 -->
+                            <div class="carousel-slide" data-index="2">
+
+                                <div class="cert-icon">
+                                    <img src="assets/icons/python.png" alt="Coursera">
+                                </div>
+
+                                <div class="carousel-content">
+                                    <h2>Coursera</h2>
+                                    <p>
+                                        Python <br>
+                                        <a target="_blank" href="https://www.coursera.org/account/accomplishments/certificate/AA2ZMHX4MNTF">
+                View Certificate
+            </a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- 4 -->
+                            <div class="carousel-slide" data-index="3">
+
+                                <div class="cert-icon">
+                                    <img src="assets/icons/networking.png" alt="Coursera">
+                                </div>
+
+                                <div class="carousel-content">
+                                    <h2>Coursera</h2>
+                                    <p>
+                                        Networking <br>
+                                        <a target="_blank" href="https://www.coursera.org/account/accomplishments/certificate/T8AXLE3V4ZNR">
+                View Certificate
+            </a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- 5 -->
+                            <div class="carousel-slide" data-index="4">
+
+                                <div class="cert-icon">
+                                    <img src="assets/icons/analytics.png" alt="Udemy">
+                                </div>
+
+                                <div class="carousel-content">
+                                    <h2>Udemy</h2>
+                                    <p>
+                                        Power BI for Business Analyst <br>
+                                        <span class="progress">In Progress</span>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- DOT NAVIGATION -->
+                    <div class="cert-dots" id="certDots"></div>
+
+                </div>
             </div>
         </section>
+
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,53.3C1120,53,1280,75,1360,85.3L1440,96V120H0Z"></path>
+    </svg>
+        </div>
+
+
+        <section id="contact" class="contact">
+            <div class="container contact-container">
+
+                <h2 class="about-title">Contact Me</h2>
+                <p class="contact-sub">Have an opportunity or project? My inbox is open.</p>
+
+                <div class="contact-wrapper">
+
+                    <!-- CONTACT FORM -->
+                    <form class="contact-form" action="https://formspree.io/f/xpqjdyao" method="POST">
+
+                        <div class="input-group">
+                            <input type="text" name="name" required>
+                            <label>Your Name</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" name="email" required>
+                            <label>Your Email</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="subject" required>
+                            <label>Subject</label>
+                        </div>
+
+                        <div class="input-group textarea">
+                            <textarea name="message" rows="5" required></textarea>
+                            <label>Your Message</label>
+                        </div>
+
+                        <button type="submit" class="send-btn">Send Message</button>
+
+                    </form>
+
+
+                    <!-- SOCIAL LINKS -->
+                    <div class="contact-social">
+
+                        <h3>Connect With Me</h3>
+
+                        <a class="social-card linkedin" href="https://www.linkedin.com/in/sajin-s-1a9a38213" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+
+                        <a class="social-card gmail" href="mailto:sajinsuri@gmail.com?subject=Opportunity%20from%20Portfolio&body=Hi%20Sajin,%20I%20visited%20your%20portfolio..." target="_blank">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Me</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
@@ -279,6 +461,27 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- SUCCESS MESSAGE POPUP -->
+
+    <div class="contact-popup" id="contactPopup">
+
+        <div class="popup-box">
+
+
+            <div class="checkmark">✓</div>
+
+            <h3>Message Sent!</h3>
+
+            <p>
+                Your message has reached Sajin.<br> He’ll get back to you soon 🙂
+            </p>
+
+            <button onclick="closePopup()">Close</button>
+
+
+        </div>
+    </div>
+
 </body>
 
 </html>

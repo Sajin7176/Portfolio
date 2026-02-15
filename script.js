@@ -62,3 +62,103 @@ window.addEventListener("scroll", () => {
         header.classList.remove("scrolled");
     }
 });
+
+/* --------certificate -------- */
+
+
+
+const wrapper = document.querySelector(".carousel-wrapper");
+const carousel = document.querySelector(".carousel");
+const slides = document.querySelectorAll(".carousel-slide");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const dotsContainer = document.getElementById("certDots");
+const glow = document.querySelector(".bg-circle");
+
+let index = 0;
+
+/* create dots */
+slides.forEach((slide, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("cert-dot");
+    if (i === 0) dot.classList.add("active");
+
+    dot.onclick = () => {
+        goToSlide(i);
+    }
+    dotsContainer.appendChild(dot);
+});
+
+/* go to slide */
+
+function goToSlide(i) {
+    index = i;
+    const slide = slides[i];
+    wrapper.scrollTo({
+        left: slide.offsetLeft - 30,
+        behavior: "smooth"
+    });
+
+    document.querySelectorAll(".cert-dot").forEach(d => d.classList.remove("active"));
+    document.querySelectorAll(".cert-dot")[i].classList.add("active");
+
+    moveGlow(slide);
+}
+
+/* glow movement */
+
+function moveGlow(slide) {
+    const rect = slide.getBoundingClientRect();
+    glow.style.left = (rect.left + rect.width / 2) + "px";
+    glow.style.top = (rect.top + rect.height / 2) + "px";
+}
+
+/* arrows */
+
+next.onclick = () => {
+    index = (index + 1) % slides.length;
+    goToSlide(index);
+}
+
+prev.onclick = () => {
+    index = (index - 1 + slides.length) % slides.length;
+    goToSlide(index);
+}
+
+/* click card also activates */
+
+slides.forEach((slide, i) => {
+    slide.addEventListener("click", () => goToSlide(i));
+});
+
+/* initial glow */
+
+moveGlow(slides[0]);
+
+const form = document.querySelector(".contact-form");
+const popup = document.getElementById("contactPopup");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    // send form to Formspree silently
+    await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    // show popup
+    popup.classList.add("active");
+
+    // clear fields
+    form.reset();
+
+
+});
+
+function closePopup() {
+    popup.classList.remove("active");
+}
