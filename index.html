@@ -4,28 +4,39 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#12213f">
     <title>Sajin S — Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- data-informed scroll indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="pointer-compass" id="pointerCompass" aria-hidden="true">
+        <span class="pointer-compass-cross"></span>
+        <span class="pointer-compass-core"></span>
+    </div>
+
     <header class="site-header" id="siteHeader">
         <div class="container header-inner">
-            <a class="logo" href="#hero"></a>
+            <a class="logo" href="#hero"><span class="logo-mark">SS</span></a>
 
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#blood-bank">Case Study</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
             </nav>
         </div>
 
-        <!-- glowing divider line -->
         <div class="nav-divider"></div>
     </header>
 
@@ -35,18 +46,22 @@
             <div class="container hero-layout">
 
                 <div class="hero-image">
+                    <span class="portrait-index" aria-hidden="true">01 / PROFILE</span>
+                    <span class="portrait-orbit portrait-orbit-one" aria-hidden="true"></span>
+                    <span class="portrait-orbit portrait-orbit-two" aria-hidden="true"></span>
                     <img src="assets/CVphoto.png" alt="Sajin S">
+                    <span class="portrait-caption" aria-hidden="true">S / S</span>
                 </div>
 
                 <div class="hero-text">
                     <h1 class="hero-title reveal">Sajin S</h1>
-                    <p class="hero-sub reveal delay-1">Software Engineer</p>
-                    <p class="hero-tag reveal delay-2">Where Imagination Meets Functionality.</p>
+                    <p class="hero-sub reveal delay-1">Software Engineer → Business Analyst</p>
+                    <p class="hero-tag reveal delay-2">Bridging the gap between “the client wants this” and “that's not how software works.”</p>
 
                     <div class="hero-actions reveal delay-3">
-                        <a class="btn primary" href="#contact" id="contactBtn">Contact Me</a>
+                        <a class="btn primary" href="#contact" id="contactBtn">Describe the Chaos</a>
                         <a class="btn outline" href="assets/Sajin_Resume.pdf" target="_blank" rel="noopener">
-    Download Resume
+    Professional Backstory
 </a>
 
                     </div>
@@ -65,16 +80,53 @@
 
         <section id="about" class="about">
             <div class="container">
-                <h2 class="about-title reveal">Profile Summary</h2>
+                <div class="section-heading">
+                    <svg class="iso-icon" viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="topGrad-about" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#eafff9"/>
+                                <stop offset="100%" stop-color="#bfe9db"/>
+                            </linearGradient>
+                            <linearGradient id="rightGrad-about" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2c8a72"/>
+                                <stop offset="100%" stop-color="#1f6f5c"/>
+                            </linearGradient>
+                            <linearGradient id="leftGrad-about" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1a2c4d"/>
+                                <stop offset="100%" stop-color="#12213f"/>
+                            </linearGradient>
+                        </defs>
+                        <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-about)"/>
+                        <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-about)"/>
+                        <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-about)"/>
+                        <rect x="35" y="19" width="30" height="3.6" rx="1.8" fill="#0d2b22"/>
+                        <rect x="35" y="25.5" width="21" height="3.6" rx="1.8" fill="#0d2b22" opacity="0.72"/>
+                        <rect x="35" y="32" width="25" height="3.6" rx="1.8" fill="#0d2b22" opacity="0.5"/>
+                    </svg>
+                    <h2 class="about-title reveal">The “About Me” Nobody Asked For</h2>
+                </div>
 
                 <p class="lead about-lead reveal delay-1">
-                    Software Engineer with hands-on experience developing and maintaining healthcare enterprise applications, including ERP and EHR systems. Experienced in full-stack development using Java, Angular, and relational databases, with a focus on building user-centric
-                    interfaces, reporting modules, and data-driven features. Alongside development, actively involved in understanding functional requirements, analyzing workflows, debugging production issues, and coordinating with testers and users to
-                    validate system behavior. Comfortable interpreting business needs and translating them into technical solutions, documenting features, and supporting user acceptance testing (UAT). Currently expanding skills toward a Business Analyst
-                    role with interests in requirements gathering, stakeholder communication, process analysis, and data interpretation. Strong interest in bridging the gap between business teams and development teams to improve system usability, reporting
-                    accuracy, and operational efficiency in healthcare environments.
-
+                    I build and support healthcare ERP and EHR systems, combining full-stack development with functional analysis and a focus on making everyday workflows work better.
                 </p>
+
+                <div class="about-highlights">
+                    <article class="about-highlight">
+                        <span class="about-highlight-index">01</span>
+                        <h3>Build</h3>
+                        <p>Develop features, interfaces, and reporting with Java, Angular, and relational databases.</p>
+                    </article>
+                    <article class="about-highlight">
+                        <span class="about-highlight-index">02</span>
+                        <h3>Understand</h3>
+                        <p>Analyze requirements and workflows, troubleshoot production issues, and support documentation, testing, and UAT.</p>
+                    </article>
+                    <article class="about-highlight">
+                        <span class="about-highlight-index">03</span>
+                        <h3>Bridge</h3>
+                        <p>Growing toward business analysis through stakeholder communication, process analysis, and data interpretation.</p>
+                    </article>
+                </div>
 
             </div>
         </section>
@@ -89,10 +141,57 @@
 
         <section id="skills" class="skills">
             <div class="container">
-                <h2 class="about-title reveal">Skills</h2>
+                <div class="section-heading">
+                    <svg class="iso-icon" viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="topGrad-skills" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#eafff9"/>
+                                <stop offset="100%" stop-color="#bfe9db"/>
+                            </linearGradient>
+                            <linearGradient id="rightGrad-skills" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2c8a72"/>
+                                <stop offset="100%" stop-color="#1f6f5c"/>
+                            </linearGradient>
+                            <linearGradient id="leftGrad-skills" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1a2c4d"/>
+                                <stop offset="100%" stop-color="#12213f"/>
+                            </linearGradient>
+                        </defs>
+                        <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-skills)"/>
+                        <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-skills)"/>
+                        <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-skills)"/>
+                        <rect x="37" y="30" width="6" height="8" rx="1" fill="#0d2b22"/>
+                        <rect x="47" y="24" width="6" height="14" rx="1" fill="#0d2b22" opacity="0.85"/>
+                        <rect x="57" y="18" width="6" height="20" rx="1" fill="#0d2b22" opacity="0.7"/>
+                    </svg>
+                    <h2 class="about-title reveal">Things I Pretend to Know</h2>
+                </div>
                 <div class="skills-grid">
                     <div class="skills-column ">
-                        <p class="hero-sub reveal delay-1">Development Skills</p>
+                        <div class="skill-cat-heading">
+                            <svg class="iso-icon iso-icon-sm" viewBox="0 0 100 100" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="topGrad-dev" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#eafff9"/>
+                                        <stop offset="100%" stop-color="#bfe9db"/>
+                                    </linearGradient>
+                                    <linearGradient id="rightGrad-dev" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#2c8a72"/>
+                                        <stop offset="100%" stop-color="#1f6f5c"/>
+                                    </linearGradient>
+                                    <linearGradient id="leftGrad-dev" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#1a2c4d"/>
+                                        <stop offset="100%" stop-color="#12213f"/>
+                                    </linearGradient>
+                                </defs>
+                                <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-dev)"/>
+                                <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-dev)"/>
+                                <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-dev)"/>
+                                <path d="M40 20 L32 28 L40 36" stroke="#0d2b22" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M60 20 L68 28 L60 36" stroke="#0d2b22" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="hero-sub reveal delay-1">Development Skills</p>
+                        </div>
 
                         <div class="card-grid">
 
@@ -159,7 +258,30 @@
 
 
                     <div class="skills-column ">
-                        <p class="hero-sub reveal delay-1">Analytical Skills</p>
+                        <div class="skill-cat-heading">
+                            <svg class="iso-icon iso-icon-sm" viewBox="0 0 100 100" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="topGrad-analytical" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#eafff9"/>
+                                        <stop offset="100%" stop-color="#bfe9db"/>
+                                    </linearGradient>
+                                    <linearGradient id="rightGrad-analytical" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#2c8a72"/>
+                                        <stop offset="100%" stop-color="#1f6f5c"/>
+                                    </linearGradient>
+                                    <linearGradient id="leftGrad-analytical" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#1a2c4d"/>
+                                        <stop offset="100%" stop-color="#12213f"/>
+                                    </linearGradient>
+                                </defs>
+                                <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-analytical)"/>
+                                <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-analytical)"/>
+                                <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-analytical)"/>
+                                <circle cx="42" cy="22" r="7" fill="none" stroke="#0d2b22" stroke-width="3.4"/>
+                                <line x1="47" y1="27" x2="54" y2="34" stroke="#0d2b22" stroke-width="3.4" stroke-linecap="round"/>
+                            </svg>
+                            <p class="hero-sub reveal delay-1">Analytical Skills</p>
+                        </div>
 
                         <div class="card-grid">
 
@@ -205,54 +327,80 @@
 
         <section id="experience" class="experience">
             <div class="container">
-                <h2 class="about-title reveal">Professional Experience</h2>
+                <div class="section-heading">
+                    <svg class="iso-icon" viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="topGrad-exp" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#eafff9"/>
+                                <stop offset="100%" stop-color="#bfe9db"/>
+                            </linearGradient>
+                            <linearGradient id="rightGrad-exp" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2c8a72"/>
+                                <stop offset="100%" stop-color="#1f6f5c"/>
+                            </linearGradient>
+                            <linearGradient id="leftGrad-exp" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1a2c4d"/>
+                                <stop offset="100%" stop-color="#12213f"/>
+                            </linearGradient>
+                        </defs>
+                        <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-exp)"/>
+                        <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-exp)"/>
+                        <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-exp)"/>
+                        <rect x="43" y="15" width="14" height="6.5" rx="2" fill="none" stroke="#0d2b22" stroke-width="3"/>
+                        <rect x="33" y="21.5" width="34" height="17" rx="3" fill="#0d2b22"/>
+                        <line x1="33" y1="30" x2="67" y2="30" stroke="#bfe9db" stroke-width="2.2"/>
+                    </svg>
+                    <h2 class="about-title reveal">Things I've Been Paid To Do</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item reveal">
+                        <span class="timeline-dot"></span>
+
+                        <div class="timeline-content">
+                            <h3>Software Engineer</h3>
+                            <h4>Dwise Healthcare IT Solutions <span class="domain">(Healthcare Product Company)</span></h4>
+                            <span class="timeline-date">Aug 2024 – Present</span>
+
+                            <p>
+                                Working as a Java Full Stack Developer contributing to the development and maintenance of enterprise healthcare applications including Electronic Health Record (EHR) and Hospital ERP systems in a live production environment.
+                            </p>
+
+                            <h5 class="exp-subtitle">Blood Bank Management Module</h5>
+
+                            <ul class="exp-points">
+                                <li>Worked on EHR and Hospital ERP modules across the full software development lifecycle (analysis, development, testing, and maintenance).</li>
+
+                                <li>Developed and maintained the Blood Bank Management System used for handling donor records, blood inventory, and patient blood request workflows.</li>
+
+                                <li>Handled maintenance and feature enhancements, analyzing user requirements and implementing solutions across backend, frontend, and database layers.</li>
+
+                                <li>Collaborated with hospital staff, QA team to understand functional needs and convert them into technical implementations.</li>
+
+                                <li>Implemented and modified REST APIs using Java & Spring Boot and built UI forms and validation using Angular.</li>
+
+                                <li>Collaborated with QA and DevOps teams during testing and release cycles.</li>
+
+                                <li>Debugged and resolved production issues reported by users and ensured smooth system operation.</li>
+
+                                <li>Optimized PostgreSQL queries to improve performance and data retrieval efficiency.</li>
+
+                                <li>Participated in deployment validation and verified implemented changes matched user requirements.</li>
+                            </ul>
 
 
-                <div class="timeline-item reveal">
+                            <div class="tech-stack">
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>Angular</span>
+                                <span>PostgreSQL</span>
+                                <span>Cypress</span>
+                                <span>REST APIs</span>
+                                <span>Git</span>
+                                <span>Healthcare Domain</span>
+                            </div>
 
-                    <div class="timeline-content">
-                        <h3>Software Engineer</h3>
-                        <h4>Dwise Healthcare IT Solutions <span class="domain">(Healthcare Product Company)</span></h4>
-                        <span class="timeline-date">Aug 2024 – Present</span>
-
-                        <p>
-                            Working as a Java Full Stack Developer contributing to the development and maintenance of enterprise healthcare applications including Electronic Health Record (EHR) and Hospital ERP systems in a live production environment.
-                        </p>
-
-                        <h5 class="exp-subtitle">Blood Bank Management Module</h5>
-
-                        <ul class="exp-points">
-                            <li>Worked on EHR and Hospital ERP modules across the full software development lifecycle (analysis, development, testing, and maintenance).</li>
-
-                            <li>Developed and maintained the Blood Bank Management System used for handling donor records, blood inventory, and patient blood request workflows.</li>
-
-                            <li>Handled maintenance and feature enhancements, analyzing user requirements and implementing solutions across backend, frontend, and database layers.</li>
-
-                            <li>Collaborated with hospital staff, QA team to understand functional needs and convert them into technical implementations.</li>
-
-                            <li>Implemented and modified REST APIs using Java & Spring Boot and built UI forms and validation using Angular.</li>
-
-                            <li>Collaborated with QA and DevOps teams during testing and release cycles.</li>
-
-                            <li>Debugged and resolved production issues reported by users and ensured smooth system operation.</li>
-
-                            <li>Optimized PostgreSQL queries to improve performance and data retrieval efficiency.</li>
-
-                            <li>Participated in deployment validation and verified implemented changes matched user requirements.</li>
-                        </ul>
-
-
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>Spring Boot</span>
-                            <span>Angular</span>
-                            <span>PostgreSQL</span>
-                            <span>Cypress</span>
-                            <span>REST APIs</span>
-                            <span>Git</span>
-                            <span>Healthcare Domain</span>
                         </div>
-
                     </div>
                 </div>
 
@@ -265,10 +413,65 @@
         </svg>
         </div>
 
-        <section id="experience" class="experience">
+        <section id="blood-bank" class="blood-bank">
+            <div class="container blood-bank-layout">
+                <div class="blood-bank-intro reveal">
+                    <span class="eyebrow"><span class="eyebrow-mark"></span> FEATURED HEALTHCARE PROJECT</span>
+                    <div class="blood-bank-title-row">
+                        <img class="blood-bank-icon" src="assets/bloodbank.png" alt="Blood Bank Management">
+                        <div>
+                            <h2 class="about-title">Blood Bank Management</h2>
+                            <p class="blood-bank-summary">A closer look at the workflows behind donor records, inventory, and patient blood requests.</p>
+                        </div>
+                    </div>
+                    <p class="blood-bank-note">From product requirements to the implemented experience, these documents capture the system from both business and user perspectives.</p>
+                </div>
+
+                <div class="blood-bank-documents" aria-label="Blood Bank project documents">
+                    <a class="document-link reveal delay-1" href="assets/Blood%20Bank%20Case%20Study.pdf" target="_blank" rel="noopener">
+                        <span class="document-number">01</span>
+                        <span class="document-copy"><strong>Case Study</strong><small>Problem, process & solution</small></span>
+                        <span class="document-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a class="document-link reveal delay-2" href="assets/BB_BRD.pdf" target="_blank" rel="noopener">
+                        <span class="document-number">02</span>
+                        <span class="document-copy"><strong>Business Requirements</strong><small>BRD · scope & requirements</small></span>
+                        <span class="document-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <span class="document-footnote"><span class="document-rule"></span> TWO DOCUMENTS · </span>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="experience">
             <div class="container cert-container">
 
-                <h2 class="about-title">Certifications</h2>
+                <div class="section-heading section-heading-center">
+                    <svg class="iso-icon" viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="topGrad-cert" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#eafff9"/>
+                                <stop offset="100%" stop-color="#bfe9db"/>
+                            </linearGradient>
+                            <linearGradient id="rightGrad-cert" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2c8a72"/>
+                                <stop offset="100%" stop-color="#1f6f5c"/>
+                            </linearGradient>
+                            <linearGradient id="leftGrad-cert" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1a2c4d"/>
+                                <stop offset="100%" stop-color="#12213f"/>
+                            </linearGradient>
+                        </defs>
+                        <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-cert)"/>
+                        <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-cert)"/>
+                        <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-cert)"/>
+                        <circle cx="50" cy="23" r="9" fill="none" stroke="#0d2b22" stroke-width="3.2"/>
+                        <path d="M50 18.5 L51.6 22 L55.4 22.5 L52.7 25 L53.4 28.7 L50 26.9 L46.6 28.7 L47.3 25 L44.6 22.5 L48.4 22 Z" fill="#0d2b22"/>
+                        <path d="M44.5 30 L41 39 L46 36.3 Z" fill="#0d2b22"/>
+                        <path d="M55.5 30 L59 39 L54 36.3 Z" fill="#0d2b22"/>
+                    </svg>
+                    <h2 class="about-title">Paperwork That Says I Know Things</h2>
+                </div>
 
                 <!-- glow background -->
                 <div class="bg-circle"></div>
@@ -400,8 +603,32 @@
         <section id="contact" class="contact">
             <div class="container contact-container">
 
-                <h2 class="about-title">Contact Me</h2>
-                <p class="contact-sub">Have an opportunity or project? My inbox is open.</p>
+                <div class="section-heading section-heading-center">
+                    <svg class="iso-icon" viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="topGrad-contact" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#eafff9"/>
+                                <stop offset="100%" stop-color="#bfe9db"/>
+                            </linearGradient>
+                            <linearGradient id="rightGrad-contact" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2c8a72"/>
+                                <stop offset="100%" stop-color="#1f6f5c"/>
+                            </linearGradient>
+                            <linearGradient id="leftGrad-contact" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1a2c4d"/>
+                                <stop offset="100%" stop-color="#12213f"/>
+                            </linearGradient>
+                        </defs>
+                        <polygon points="50,8 88,28 50,48 12,28" fill="url(#topGrad-contact)"/>
+                        <polygon points="12,28 50,48 50,90 12,70" fill="url(#leftGrad-contact)"/>
+                        <polygon points="50,48 88,28 88,70 50,90" fill="url(#rightGrad-contact)"/>
+                        <rect x="32" y="18" width="36" height="22" rx="3" fill="none" stroke="#0d2b22" stroke-width="3.2"/>
+                        <path d="M32 20 L50 32 L68 20" fill="none" stroke="#0d2b22" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h2 class="about-title">Summon the Developer</h2>
+                </div>
+                <p class="contact-sub">Have a project or a job opportunity? My inbox is open. I can't promise I’ll know what I’m doing, but I can promise I’ll Google it professionally.
+                </p>
 
                 <div class="contact-wrapper">
 
@@ -411,42 +638,71 @@
                         <div class="input-group">
                             <input type="text" name="name" required>
                             <label>Your Name</label>
+                            <span class="field-cat" aria-hidden="true">
+                                <span class="cat-thought">Who are you?</span>
+                            <span class="cat-tail"></span>
+                            <span class="cat-body"><i class="cat-paw cat-paw-back"></i><i class="cat-paw cat-paw-front"></i></span>
+                            <span class="cat-face"><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-nose"></i><i class="cat-mouth"></i></span>
+                            </span>
                         </div>
 
                         <div class="input-group">
                             <input type="email" name="email" required>
                             <label>Your Email</label>
+                            <span class="field-cat" aria-hidden="true">
+                                <span class="cat-thought">A secret address?</span>
+                            <span class="cat-tail"></span>
+                            <span class="cat-body"><i class="cat-paw cat-paw-back"></i><i class="cat-paw cat-paw-front"></i></span>
+                            <span class="cat-face"><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-nose"></i><i class="cat-mouth"></i></span>
+                            </span>
                         </div>
 
                         <div class="input-group">
                             <input type="text" name="subject" required>
                             <label>Subject</label>
+                            <span class="field-cat" aria-hidden="true">
+                                <span class="cat-thought">What's the story?</span>
+                            <span class="cat-tail"></span>
+                            <span class="cat-body"><i class="cat-paw cat-paw-back"></i><i class="cat-paw cat-paw-front"></i></span>
+                            <span class="cat-face"><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-nose"></i><i class="cat-mouth"></i></span>
+                            </span>
                         </div>
 
                         <div class="input-group textarea">
                             <textarea name="message" rows="5" required></textarea>
                             <label>Your Message</label>
+                            <span class="field-cat" aria-hidden="true">
+                                <span class="cat-thought">Tell me everything!</span>
+                            <span class="cat-tail"></span>
+                            <span class="cat-body"><i class="cat-paw cat-paw-back"></i><i class="cat-paw cat-paw-front"></i></span>
+                            <span class="cat-face"><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-nose"></i><i class="cat-mouth"></i></span>
+                            </span>
                         </div>
-
-                        <button type="submit" class="send-btn">Send Message</button>
 
                     </form>
 
+                    <div class="contact-actions">
+                        <button type="submit" class="send-btn" form="contactForm">Send Message</button>
 
-                    <!-- SOCIAL LINKS -->
-                    <div class="contact-social">
+                        <div class="contact-social" role="group" aria-label="Connect with Sajin">
+                            <a class="social-orb linkedin" href="https://www.linkedin.com/in/sajin-s-1a9a38213" target="_blank" rel="noopener" aria-label="Visit Sajin on LinkedIn">
+                                <img src="assets/linkedin-logo.png" alt="" aria-hidden="true">
+                                <span class="social-popout" aria-hidden="true">
+                                <span class="social-cat"><span class="social-cat-tail"></span><span class="social-cat-body"><i></i><i></i></span><span class="social-cat-head"><i></i><i></i><b></b></span></span>
+                                <span class="social-popout-copy"><strong>LinkedIn</strong><small>Curious? Let's connect</small></span>
+                                <span class="social-popout-arrow">↗</span>
+                                </span>
+                            </a>
 
-                        <h3 class="contact-sub reveal delay-2">Connect With Me</h3>
-                        <a class="social-card linkedin" href="https://www.linkedin.com/in/sajin-s-1a9a38213" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-
-                        <a class="social-card gmail" href="mailto:sajinsuri@gmail.com?subject=Opportunity%20from%20Portfolio&body=Hi%20Sajin,%20I%20visited%20your%20portfolio..." target="_blank">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email Me</span>
-                        </a>
-
+                            <a class="social-orb gmail" href="mailto:sajinsuri@gmail.com?subject=Opportunity%20from%20Portfolio&body=Hi%20Sajin,%20I%20visited%20your%20portfolio..." aria-label="Email Sajin">
+                                <img src="assets/email.png" alt="" aria-hidden="true">
+                                <span class="social-popout" aria-hidden="true">
+                                <span class="social-cat"><span class="social-cat-tail"></span><span class="social-cat-body"><i></i><i></i></span><span class="social-cat-head"><i></i><i></i><b></b></span></span>
+                                <span class="social-popout-copy"><strong>Email Sajin</strong><small>Meow-mail, coming up</small></span>
+                                <span class="social-popout-arrow">↗</span>
+                                </span>
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -461,6 +717,10 @@
             <p>© 2026 Sajin S | Software Developer & Data Enthusiast</p>
         </div>
     </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
     <!-- SUCCESS MESSAGE POPUP -->

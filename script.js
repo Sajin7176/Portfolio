@@ -13,6 +13,76 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("Form element:", form);
     console.log("Popup element:", popup);
 
+    const contactFields = document.querySelectorAll("#contactForm .input-group input, #contactForm .input-group textarea");
+    const catPrompts = {
+        name: "Who are you?",
+        email: "A secret address?",
+        subject: "What's the story?",
+        message: "Tell me everything!"
+    };
+    const typingThoughts = ["Ooh, a start...", "Interesting...", "Keep going..."];
+
+    contactFields.forEach(field => {
+        const fieldGroup = field.closest(".input-group");
+        const catThought = fieldGroup.querySelector(".cat-thought");
+
+        field.addEventListener("focus", () => {
+            fieldGroup.classList.add("is-curious");
+            catThought.textContent = field.value.trim() ? "Back for more?" : catPrompts[field.name];
+        });
+
+        field.addEventListener("input", () => {
+            const length = field.value.trim().length;
+            fieldGroup.classList.toggle("is-typing", length > 0);
+            catThought.textContent = length > 0 ?
+                typingThoughts[Math.min(Math.floor(length / 18), typingThoughts.length - 1)] :
+                catPrompts[field.name];
+        });
+
+        field.addEventListener("blur", () => {
+            fieldGroup.classList.remove("is-curious", "is-typing");
+            catThought.textContent = catPrompts[field.name];
+        });
+    });
+
+    document.querySelectorAll(".social-orb").forEach(socialOrb => {
+        const socialPopout = socialOrb.querySelector(".social-popout");
+        let pointerInside = false;
+        let buttonFocused = false;
+
+        function setSocialPopoutOpen(isOpen) {
+            socialOrb.classList.toggle("is-open", isOpen);
+            if (isOpen) {
+                socialPopout.style.opacity = "1";
+                socialPopout.style.visibility = "visible";
+            } else {
+                socialPopout.style.removeProperty("opacity");
+                socialPopout.style.removeProperty("visibility");
+            }
+        }
+
+        function updateSocialPopout() {
+            setSocialPopoutOpen(pointerInside || buttonFocused);
+        }
+
+        socialOrb.addEventListener("pointerenter", () => {
+            pointerInside = true;
+            updateSocialPopout();
+        });
+        socialOrb.addEventListener("pointerleave", () => {
+            pointerInside = false;
+            updateSocialPopout();
+        });
+        socialOrb.addEventListener("focus", () => {
+            buttonFocused = true;
+            updateSocialPopout();
+        });
+        socialOrb.addEventListener("blur", () => {
+            buttonFocused = false;
+            updateSocialPopout();
+        });
+    });
+
     /* -------- MOBILE NAV -------- */
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.querySelector(".nav-links");
@@ -25,10 +95,29 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.nav-links a').forEach(a => {
         a.addEventListener('click', () => {
             if (window.innerWidth < 800 && navLinks) {
-                navLinks.style.display = 'none';
+                navLinks.classList.remove('mobile-open');
             }
         });
     });
+
+    const pointerCompass = document.getElementById("pointerCompass");
+    const supportsPointerCompass = window.matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)").matches;
+
+    if (pointerCompass && supportsPointerCompass) {
+        document.addEventListener("pointermove", event => {
+            pointerCompass.style.setProperty("--pointer-x", `${event.clientX}px`);
+            pointerCompass.style.setProperty("--pointer-y", `${event.clientY}px`);
+            pointerCompass.classList.add("is-visible");
+        });
+
+        document.addEventListener("pointerleave", () => {
+            pointerCompass.classList.remove("is-visible");
+        });
+
+        window.addEventListener("blur", () => {
+            pointerCompass.classList.remove("is-visible");
+        });
+    }
 
     /* -------- SCROLL REVEAL ANIMATION -------- */
     const observer = new IntersectionObserver((entries) => {
@@ -50,18 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const revealElements = document.querySelectorAll('.reveal, .skill-card');
     revealElements.forEach(el => {
         observer.observe(el);
-    });
-
-    /* Add simple tilt effect to skill cards */
-    const cards = document.querySelectorAll('.skill-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
     });
 
     /* -------- CONTACT FORM & POPUP -------- */
@@ -94,25 +171,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /* -------- NAVBAR SCROLL EFFECT -------- */
+    /* -------- NAVBAR SCROLL EFFECT + SCROLL PROGRESS + BACK TO TOP -------- */
     const header = document.getElementById("siteHeader");
+    const scrollProgress = document.getElementById("scrollProgress");
+    const backToTop = document.getElementById("backToTop");
 
-    window.addEventListener("scroll", () => {
+    function onScroll() {
         if (window.scrollY > 60) {
             header.classList.add("scrolled");
         } else {
             header.classList.remove("scrolled");
         }
-    });
+
+        if (scrollProgress) {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            scrollProgress.style.width = pct + "%";
+        }
+
+        if (backToTop) {
+            if (window.scrollY > 500) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    if (backToTop) {
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 
     /* -------- CERTIFICATION CAROUSEL -------- */
     const wrapper = document.querySelector(".carousel-wrapper");
-    const carousel = document.querySelector(".carousel");
     const slides = document.querySelectorAll(".carousel-slide");
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
     const dotsContainer = document.getElementById("certDots");
-    const glow = document.querySelector(".bg-circle");
 
     let index = 0;
 
@@ -139,15 +240,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.querySelectorAll(".cert-dot").forEach(d => d.classList.remove("active"));
         document.querySelectorAll(".cert-dot")[i].classList.add("active");
-
-        moveGlow(slide);
-    }
-
-    /* glow movement */
-    function moveGlow(slide) {
-        const rect = slide.getBoundingClientRect();
-        glow.style.left = (rect.left + rect.width / 2) + "px";
-        glow.style.top = (rect.top + rect.height / 2) + "px";
     }
 
     /* arrows */
@@ -165,9 +257,6 @@ document.addEventListener('DOMContentLoaded', function() {
     slides.forEach((slide, i) => {
         slide.addEventListener("click", () => goToSlide(i));
     });
-
-    /* initial glow */
-    moveGlow(slides[0]);
 
 });
 
